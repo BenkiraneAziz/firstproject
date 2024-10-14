@@ -1,5 +1,41 @@
-<html>
-	<h1>hello world</h1P>
-	<h2>second add</h2>
-	<h3>branch add</h3>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Metadata Example</title>
+</head>
+<body>
+    <h1>Welcome to the Page</h1>
+    <button id="setMetadataBtn">Set Metadata</button>
+
+    <script>
+        function setMetaTag(name, content, property = 'name') {
+            let meta = document.querySelector(`meta[${property}="${name}"]`);
+
+            if (!meta) {
+                meta = document.createElement('meta');
+                meta.setAttribute(property, name);
+                document.head.appendChild(meta);
+            }
+
+            meta.setAttribute('content', content);
+        }
+
+
+            setMetaTag('og:title', 'My Dynamic Webpage', 'property');
+            setMetaTag('og:description', 'This description was set dynamically using JavaScript.', 'property');
+            setMetaTag('og:image', 'https://www.example.com/dynamic-image.jpg', 'property');
+            setMetaTag('og:url', window.location.href, 'property');
+            setMetaTag('og:type', 'website', 'property');
+
+            // Twitter tags
+            setMetaTag('twitter:card', 'summary_large_image');
+            setMetaTag('twitter:title', 'My Dynamic Webpage');
+            setMetaTag('twitter:description', 'This description was set dynamically using JavaScript.');
+            setMetaTag('twitter:image', 'https://www.example.com/dynamic-image.jpg');
+        
+
+    </script>
+</body>
 </html>
